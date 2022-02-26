@@ -43,10 +43,9 @@ h1 span {
 
 .cell {
     background-color: #b1b2bb;
-    border: 1px solid black
 }
 
-.cell:hover {
+.colored-cell {
     background-color: #000000;
 }
 
@@ -55,6 +54,16 @@ h1 span {
     justify-content: space-between;
     width: 70%;
     color: white;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.controls .erase {
+    width: max-content;
 }
 
 .dial {

@@ -36,4 +36,34 @@ function createGrid() {
     // adds CSS grid style to grid container BASED ON GRID SIZE so the container knows how many columns to create
     gridContainer.style.gridTemplateColumns = (`repeat(${size}, 1fr)`);
 
+    let cells = document.querySelectorAll('.cell')
+    for(let i = 0; i < cells.length; i++){
+        cells[i].addEventListener('mouseover', () => x(cells[i]));
+    }
 }
+
+
+function x(cell) {
+    cell.classList.add('colored-cell');
+}
+
+/*
+
+// generate a random number 
+function getRandomNumber() {
+    return Math.floor(Math.random() * 255);
+}
+
+// generate a random RGB value
+function generateColor() {
+    let r = getRandomNumber();
+    let g = getRandomNumber();
+    let b = getRandomNumber();
+    console.log(`rgb(${r}, ${g}, ${b})`);
+}
+
+getRandomNumber()
+
+generateColor();
+
+*/
