@@ -9,18 +9,16 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    margin-top: 2rem;
     background-color: #d11418;
     color: #d8a445;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .grid-container {
     min-width: 60%;
     height: 450px;
     background-color: #bcbdc7;
-    box-shadow: inset 0px 0px 10px 2px #000000;
     border-radius: 12px;
-    font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
@@ -32,6 +30,8 @@ h1 {
 h1 span {
     font-family: 'Open Sans';
     font-size: 1.15rem;
+    font-weight: 400;
+    font-style: italic;
     letter-spacing: normal;
     text-transform: uppercase;
 }
@@ -47,4 +47,18 @@ h1 span {
 
 .cell:hover {
     background-color: #000000;
+}
+
+.controls-container {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    color: white;
+}
+
+.dial {
+    height: 75px;
+    width: 75px;
+    background-color: white;
+    border-radius: 50%;
 }

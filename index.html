@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400&family=Qwigley&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;1,300;1,400&family=Qwigley&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>Etch-A-Sketch</title>
 </head>
@@ -12,7 +12,16 @@
     
     <h1><span>magic</span> Etch A Sketch <span>screen</span></h1>
     <div class="grid-container"></div>
-    
+    <div class="controls-container">
+        <div class="dial"></div>
+        <div class="controls">
+            <label for="grid-sze">Grid Size</label>
+            <input type="range" name="grid-size" id="grid-size-selector" min="1" max="100" value="16">
+            <label for="grid-size" id="grid-size-display">16x16</label>
+        </div>
+        <div class="dial"></div>
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>
