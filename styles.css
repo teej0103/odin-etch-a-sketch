@@ -5,11 +5,46 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin-top: 2rem;
     background-color: #d11418;
     color: #d8a445;
 }
 
+.grid-container {
+    min-width: 60%;
+    height: 450px;
+    background-color: #bcbdc7;
+    box-shadow: inset 0px 0px 10px 2px #000000;
+    border-radius: 12px;
+    font-family: 'Open Sans', sans-serif;
+}
 
-/* 
-gamepad color
-#d8a445 */
+h1 {
+    font-family: 'Qwigley', sans-serif;
+    letter-spacing: .25rem;
+    font-size: 5rem;
+}
+
+h1 span {
+    font-family: 'Open Sans';
+    font-size: 1.15rem;
+    letter-spacing: normal;
+    text-transform: uppercase;
+}
+
+.grid-container {
+    display: grid;
+    overflow: hidden;
+}
+
+.cell {
+    background-color: #b1b2bb;
+}
+
+.cell:hover {
+    background-color: #000000;
+}
