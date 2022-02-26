@@ -1,11 +1,3 @@
-// creates a 16x16 grid when page is initially loaded
-let gridContainer = document.querySelector('.grid-container');
-window.addEventListener('DOMContentLoaded', createGrid);
-
-// gets size of grid from range slider input
-let gridSizeSlider = document.querySelector('#grid-size-selector');
-gridSizeSlider.addEventListener('input', displayGridSize)
-
 // display grid size next to slider
 function displayGridSize(e) {
     let div = document.querySelector('#grid-size-display');
@@ -16,9 +8,6 @@ function displayGridSize(e) {
 function deleteGrid() {
     gridContainer.innerHTML = '';
 }
-
-// creates a new grid based on size player chooses with slider on page
-gridSizeSlider.addEventListener('change', createGrid);
 
 function createGrid() {
     // delete previous grid board
@@ -36,16 +25,41 @@ function createGrid() {
     // adds CSS grid style to grid container BASED ON GRID SIZE so the container knows how many columns to create
     gridContainer.style.gridTemplateColumns = (`repeat(${size}, 1fr)`);
 
+    // drawing event, each cell moused over is colored
     let cells = document.querySelectorAll('.cell')
     for(let i = 0; i < cells.length; i++){
-        cells[i].addEventListener('mouseover', () => x(cells[i]));
+        cells[i].addEventListener('mouseover', () => addColor(cells[i]));
     }
 }
 
-
-function x(cell) {
+// adds the colored class to cell that has been hovered over by mouse
+function addColor(cell) {
     cell.classList.add('colored-cell');
 }
+
+function eraseBoard() {
+    // create nodeList of all colored cell on board
+    let cells = document.querySelectorAll('.colored-cell');
+    // loop through board, toggling colored class off
+    for(let i = 0; i < cells.length; i++) {
+        cells[i].classList.toggle('colored-cell');
+    }
+}
+
+// selector and event listener for erase board button
+let erase = document.querySelector('.erase')
+erase.addEventListener('click', eraseBoard)
+
+// creates a 16x16 grid when page is initially loaded
+let gridContainer = document.querySelector('.grid-container');
+window.addEventListener('DOMContentLoaded', createGrid);
+
+// gets size of grid from range slider input
+let gridSizeSlider = document.querySelector('#grid-size-selector');
+gridSizeSlider.addEventListener('input', displayGridSize)
+
+// creates a new grid based on size player chooses with slider on page
+gridSizeSlider.addEventListener('change', createGrid);
 
 /*
 
