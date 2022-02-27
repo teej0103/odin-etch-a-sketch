@@ -27,23 +27,45 @@ function createGrid() {
 
     // drawing event, each cell moused over is colored
     let cells = document.querySelectorAll('.cell')
-    for(let i = 0; i < cells.length; i++){
-        cells[i].addEventListener('mouseover', () => addColor(cells[i]));
-    }
-}
 
-// adds the colored class to cell that has been hovered over by mouse
-function addColor(cell) {
-    cell.classList.add('colored-cell');
+    // mouse over event for color button
+    let colorButton = document.querySelector('.color-mode');
+    colorButton.addEventListener('click', () => {
+        for(let i = 0; i < cells.length; i++){
+            cells[i].addEventListener('mouseover', () => cells[i].style.backgroundColor = generateColor());
+        }
+    })
+
+    // mouse over event for traditonal color button
+    let traditionalButton = document.querySelector('.traditional-mode');
+    traditionalButton.addEventListener('click', () => {
+        for(let i = 0; i < cells.length; i++){
+            cells[i].addEventListener('mouseover', () => cells[i].style.backgroundColor = 'black');
+        }
+    })
 }
 
 function eraseBoard() {
     // create nodeList of all colored cell on board
-    let cells = document.querySelectorAll('.colored-cell');
+    let cells = document.querySelectorAll('.cell');
+    console.log('hey')
     // loop through board, toggling colored class off
     for(let i = 0; i < cells.length; i++) {
-        cells[i].classList.toggle('colored-cell');
+        cells[i].style.backgroundColor = '#b1b2bb';
     }
+}
+
+// generate a random number 
+function getRandomNumber() {
+    return Math.floor(Math.random() * 255);
+}
+
+// generate a random RGB value
+function generateColor() {
+    let r = getRandomNumber();
+    let g = getRandomNumber();
+    let b = getRandomNumber();
+    return `rgb(${r}, ${g}, ${b})`;
 }
 
 // selector and event listener for erase board button
@@ -60,24 +82,3 @@ gridSizeSlider.addEventListener('input', displayGridSize)
 
 // creates a new grid based on size player chooses with slider on page
 gridSizeSlider.addEventListener('change', createGrid);
-
-/*
-
-// generate a random number 
-function getRandomNumber() {
-    return Math.floor(Math.random() * 255);
-}
-
-// generate a random RGB value
-function generateColor() {
-    let r = getRandomNumber();
-    let g = getRandomNumber();
-    let b = getRandomNumber();
-    console.log(`rgb(${r}, ${g}, ${b})`);
-}
-
-getRandomNumber()
-
-generateColor();
-
-*/
